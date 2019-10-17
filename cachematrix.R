@@ -6,13 +6,19 @@
 makeCacheMatrix <- function(x = matrix()) {
   #Set m to null
   m <- NULL
+  #set value of matrix after object has been generated
   set <- function(y) {
     x <<- y 
     m <<- NULL
   }
   #From course websites example of calculating mean modified for the solve function
+  #Prints value of matrix
   get <- function() x 
+  
+  #Solve for m
   setsolve <- function(solve) m <<- solve
+  
+  #get the solved data and print
   getsolve <- function () m
   list(set = set, get = get, 
        setsolve = setsolve,
@@ -29,6 +35,7 @@ cacheSolve <- function(x, ...) {
   #From course websites example of calculating mean modified for the solve function
   m <- x$getsolve()
   if(!is.null(m)){
+    #If Cache available prints previously calculated
     message("Cache is available")
     return(m)
   }
